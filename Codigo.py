@@ -105,3 +105,17 @@ class Equilibrio ():
             print(separador)
             print("Quieres intentar con otro dato de Unidad ")
             minimenu=int(input("1=SI\n2=NO\n:"))
+
+menu=1
+separador=("*"*50)
+while menu==1:
+    print(separador,"Bienvenido al programa",separador)
+    p=float(input("Dime el Precio de Venta Unitario : "))
+    cv=float(input("Dime el Costo Variable por unidad : "))
+    cf=float(input("Dime los Costos Fijos Totales : "))
+    print("Abriendo Base de Datos...")
+    time.sleep(3)
+    objeto1=Equilibrio(p,cv,cf)
+    objeto1.proceso()
+    menu=2
+    print(separador,"Fin del Programa",separador)
