@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt 
 import numpy as np 
+import sys
 
 
 import time
@@ -108,14 +109,24 @@ class Equilibrio ():
 
 menu=1
 separador=("*"*50)
-while menu==1:
-    print(separador,"Bienvenido al programa",separador)
-    p=float(input("Dime el Precio de Venta Unitario : "))
-    cv=float(input("Dime el Costo Variable por unidad : "))
-    cf=float(input("Dime los Costos Fijos Totales : "))
-    print("Abriendo Base de Datos...")
-    time.sleep(3)
-    objeto1=Equilibrio(p,cv,cf)
-    objeto1.proceso()
-    menu=2
-    print(separador,"Fin del Programa",separador)
+try:
+    while menu==1:
+        print(separador,"Bienvenido al programa",separador)
+        p=float(input("Dime el Precio de Venta Unitario : "))
+        cv=float(input("Dime el Costo Variable por unidad : "))
+        cf=float(input("Dime los Costos Fijos Totales : "))
+        print("Abriendo Base de Datos...")
+        time.sleep(3)
+        objeto1=Equilibrio(p,cv,cf)
+        objeto1.proceso()
+        menu=2
+
+except:
+    print("*"*30)
+    print(f"Ocurrió un problema {sys.exc_info()[0]}")
+    print(f"Ocurrió un problema {sys.exc_info()[1]}")
+    print("Intenta respetar lo que se te pide :) ")
+    print("*"*30)
+    
+finally:
+    print(separador,"Fin del Programa",separador) 
